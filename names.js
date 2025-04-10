@@ -6,7 +6,10 @@ if(window.XMLHttpRequest){
     xhr = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
+
 requestURL = "https://api.sheetbest.com/sheets/c1e0ead6-6df0-49f7-ace0-ec90562a8c3f"
+
+xhr.open("GET", requestURL, true);
 
 xhr.readystatechange = function(){
     if (xhr.readyState == 4 && xhr.status == 200){
@@ -14,5 +17,5 @@ xhr.readystatechange = function(){
     }
 }
 
-xhr.open("GET", requestURL, true);
+
 xhr.send();
