@@ -107,6 +107,7 @@ function displayBabyNameGraphic(data) {
     graph.appendChild(nameChart);
 
     const ctx = nameChart.getContext("2d");
+    const textCtx = nameChart.getContext("2d");
 
     const chartWidth = nameChart.width;
     const chartHeight = nameChart.height;
@@ -128,10 +129,14 @@ function displayBabyNameGraphic(data) {
         ctx.fillRect(x, y, barWidth - 10, barHeight);
 
         
-        ctx.fillstyle = "black"
-        ctx.textAlign = "center";
-        ctx.font = "18px sans-serif"
-        ctx.fillText(rank, x + barWidth / 2 - 5, y + 20); // Adjust rank label just below the bar
+        textCtx.textAlign = "center";
+        textCtx.font = "18px sans-serif"
+        if (rank <= 10){
+            textCtx.fillStyle = "red"
+        } else {
+            textCtx.fillStyle = "#000000"
+        }
+        textCtx.fillText(rank, x + barWidth / 2 - 5, y + 20); // Adjust rank label just below the bar
     });
 
     years.forEach((year, index) => {
